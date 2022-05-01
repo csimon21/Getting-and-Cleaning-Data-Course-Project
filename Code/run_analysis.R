@@ -1,4 +1,4 @@
-# Download the data ----
+# 1) Download the data ----
 # download the .zip folder from the internet
 downloaded_file <- "Course_Project_3_Data.zip"
 if (!file.exists(downloaded_file)){
@@ -11,7 +11,7 @@ if (!file.exists("UCI HAR Dataset")){
 }
 
 
-# Load required packages (and install if not already installed) ----
+# 2) Load required packages (and install if not already installed) ----
 if (!require(data.table)){
   install.packages("data.table")
 }
@@ -26,7 +26,7 @@ if (!require(tidyverse)){
 }
 
 
-# Read in the data ----
+# 3) Read in the data ----
 # identifiers 
 activity_labels <- fread("UCI HAR Dataset/activity_labels.txt")
 features <- fread("UCI HAR Dataset/features.txt")
@@ -41,7 +41,7 @@ test_data <- fread("UCI HAR Dataset/test/X_test.txt")
 test_labels <- fread("UCI HAR Dataset/test/y_test.txt")
 test_subjects <- fread("UCI HAR Dataset/test/subject_test.txt")
 
-# Clean up the data ----
+# 4) Clean up the data ----
 # training cleaning
 train_data_cleaned <- train_data %>%
   # set column names to feature names
@@ -78,21 +78,19 @@ test_data_cleaned <- test_data %>%
   rename(subject_id = V1) %>%
   relocate(subject_id)
 
-# Merge the training and test data into a single dataset ----
+# 5) Merge the training and test data into a single dataset ----
 all_data <- rbind(train_data_cleaned, test_data_cleaned) 
 
-# Extract only the measurements on the mean and standard devitation for each measurement ----
+# 6) Extract only the measurements on the mean and standard devitation for each measurement ----
 all_data_mean_std <- all_data %>%
   select(subject_id, activity, contains("mean") | contains("std"))
 
 fwrite(all_data_mean_std, "Final Data/combined_data.txt")
 
-# Find average of each variable for each activity and subject ----
+# 7) Find average of each variable for each activity and subject ----
 var_avgs <- all_data_mean_std %>%
   group_by(subject_id, activity) %>%
   summarise_all(mean) %>%
   ungroup()
 
 fwrite(var_avgs, "Final Data/avgs_by_activity_and_subject.txt")
-
-
