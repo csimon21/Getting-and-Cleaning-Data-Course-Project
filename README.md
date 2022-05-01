@@ -14,16 +14,16 @@ The only script used in this project is **run_analysis.R,** which as described a
 
   1. Downloads the data from the internet and unzips it into a folder called **UCI HAR Dataset.**
   2. Loads required packages. Packages used are as follows: 
-    1. **data.table:** Used to read in the unzipped data
-    2. **janitor:** Used to clean up descriptive column names
-    3. **magrittr:** Used to set column names in bulk 
-    4. **tidyverse:** Used for misc. Tidyverse functions
+      1. **data.table:** Used to read in the unzipped data
+      2. **janitor:** Used to clean up descriptive column names
+      3. **magrittr:** Used to set column names in bulk 
+      4. **tidyverse:** Used for misc. Tidyverse functions
   3. Reads data into the local R environment.
   4. Cleans up the data, first training then test. Cleaning steps are as follows: 
-    1. Set column names to the feature labels found in **features.txt**
-    2. Remove special characters (dashes, parentheses, commas, etc.) from column names 
-    3. Attach activity names to data (and subsequently move to the front)
-    4. Attach subject ID numbers to data (and subsequently move to the front)
+      1. Set column names to the feature labels found in **features.txt**
+      2. Remove special characters (dashes, parentheses, commas, etc.) from column names 
+      3. Attach activity names to data (and subsequently move to the front)
+      4. Attach subject ID numbers to data (and subsequently move to the front)
   5. Merges the cleaned training and test data into a single dataset.
   6. Extracts only the measurements on the mean and standard deviation for each measurement, then writes the resulting data to **combined_data.txt** in the **Final Data** folder.
   7. Finds the average of each variable for each activity and subject, then writes the resulting data to **avgs_by_activity_and_subject.txt** in the **Final Data** folder. 
