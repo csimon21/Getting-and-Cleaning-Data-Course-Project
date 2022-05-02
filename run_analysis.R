@@ -85,6 +85,9 @@ all_data <- rbind(train_data_cleaned, test_data_cleaned)
 all_data_mean_std <- all_data %>%
   select(subject_id, activity, contains("mean") | contains("std"))
 
+if (!file.exists("Final Data")){
+  dir.create("Final Data")
+}
 write.table(all_data_mean_std, "Final Data/combined_data.txt", row.names = F)
 
 # 7) Find average of each variable for each activity and subject ----
@@ -93,4 +96,7 @@ var_avgs <- all_data_mean_std %>%
   summarise_all(mean) %>%
   ungroup()
 
+if (!file.exists("Final Data")){
+  dir.create("Final Data")
+}
 write.table(var_avgs, "Final Data/avgs_by_activity_and_subject.txt", row.names = F)
