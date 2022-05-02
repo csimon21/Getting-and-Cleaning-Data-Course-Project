@@ -3,11 +3,11 @@
 ## Directory Overview 
 This directory contains the following folders/files: 
 
-  1. **Code:** The **Code** folder contains this project's only script, **run_analysis.R.**
-  2. **Final Data:** The **Final Data** folder contains two text files -- **combined_data.txt,** which is the cleaned and combined training and test data, and **avgs_by_activity_and_subject.txt,** which is the second tidy dataset created according to Step 5 in this project's instructions.
-  3. **.gitignore:** The **.gitignore** file allows us to exclude the project's data files from being added to this Git repo. 
-  4. **CodeBook.md:** The **CodeBook.md** file describes the variables, the data, and any transformations and/or work that was performed to clean up the data. 
-  5. **README.md**
+  1. **Final Data:** The **Final Data** folder contains two text files -- **combined_data.txt,** which is the cleaned and combined training and test data, and **avgs_by_activity_and_subject.txt,** which is the second tidy dataset created according to Step 5 in this project's instructions.
+  2. **.gitignore:** The **.gitignore** file allows us to exclude the project's data files from being added to this Git repo. 
+  3. **CodeBook.md:** The **CodeBook.md** file describes the variables, the data, and any transformations and/or work that was performed to clean up the data. 
+  4. **README.md:** The project's README file. 
+  5. **run_analysis.R:** The script used to clean the data and produce the final output data set. 
   
 ## Explanation of Analysis Script(s)
 The only script used in this project is **run_analysis.R,** which as described above can be found in the **Code** folder. It does the following: 
