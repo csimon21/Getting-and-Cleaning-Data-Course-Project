@@ -10,7 +10,7 @@ This directory contains the following folders/files:
   5. **run_analysis.R:** The script used to clean the data and produce the final output data set. 
   
 ## Explanation of Analysis Script(s)
-The only script used in this project is **run_analysis.R,** which as described above can be found in the **Code** folder. It does the following: 
+The only script used in this project is **run_analysis.R.** It does the following: 
 
   1. Downloads the data from the internet and unzips it into a folder called **UCI HAR Dataset.**
   2. Loads required packages. Packages used are as follows: 
